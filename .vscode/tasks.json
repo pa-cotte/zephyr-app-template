@@ -2,18 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Configure app",
-            "type": "shell",
-            "command": "west build -p auto -b ${input:board_app} project/app",
-            "group": "build",
-            "presentation": {
-                "clear": true
-            }
-        },
-        {
             "label": "Build",
             "type": "shell",
-            "command": "west build",
+            "command": "west build -p auto -b ${input:board_app} project/app && sudo cp -f ${workspaceFolder}/build/zephyr/zephyr.bin ${ALIF_SE_TOOLS}/build/images/zephyr_e7_rtsshp.bin && cd ${ALIF_SE_TOOLS} && sudo ./app-gen-toc -f ${workspaceFolder}/tools/alif/zephyr_e7_rtsshp.json",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -23,10 +14,16 @@
             }
         },
         {
+            "label": "Set COM port",
+            "type": "shell",
+            "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/maintenance -d",
+            "group": "test",
+        },
+        {
             "label": "Flash",
             "type": "shell",
-            "command": "west flash",
-            "group": "test"
+            "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-write-mram -p",
+            "group": "test",
         },
         {
             "label": "Clean",
@@ -42,6 +39,7 @@
             "description": "Target board",
             "options": [
                 "nucleo_l476rg",
+                "alif_e7_dk_rtss_hp",
             ],
             "default": "nucleo_l476rg"
         }

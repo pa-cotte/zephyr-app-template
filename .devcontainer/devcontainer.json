@@ -8,12 +8,24 @@
   },
   "build": {
     "dockerfile": "Dockerfile",
-    "args": {"ZEPHYR_SDK_VERSION": "0.16.4"}
+    "args": {
+      "ZEPHYR_SDK_VERSION": "0.17.0",
+      "ALIF_SE_TOOLS": "/opt/alif-se-tools/"
+    }
   },
   "containerEnv": {
     "PROMPT_COMMAND": "history -a",
-    "ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr"
+    "ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr",
+    "ALIF_SE_TOOLS": "/opt/alif-se-tools/",
+    "ZEPHYR_SDK_VERSION": "0.17.0"
   },
+  "runArgs": [
+    "--security-opt",
+    "label=disable"
+  ],
+  "mounts": [
+    "type=bind,source=/dev/bus/usb,target=/dev/bus/usb"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [

@@ -26,5 +26,25 @@
                 "${workspaceFolder}/zephyr/boards/st/nucleo_l476rg/support/openocd.cfg"
             ]
         },
+        {
+            "name": "ALIF E7 DK RTSS HP",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            // "serverpath": "/opt/zephyr-sdk-0.17.0/sysroots/x86_64-pokysdk-linux/usr/bin/openocd",
+            // "servertype": "openocd",
+            "serverpath": "/opt/SEGGER/JLink/JLinkGDBServerCLExe",
+            "servertype": "jlink",
+            "interface": "swd",
+            "device": "AE722F80F55D5_HP",
+            "toolchainPrefix": "arm-zephyr-eabi",
+            "armToolchainPath": "/opt/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin",
+            "rtos": "Zephyr",
+            "showDevDebugOutput": "vscode",
+            "configFiles": [
+                "${workspaceFolder}/zephyr/boards/arm/alif_e7_dk/support/openocd.cfg"
+            ]
+        },
     ]
 }

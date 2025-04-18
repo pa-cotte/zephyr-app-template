@@ -39,16 +39,6 @@
     "VsCodeTaskButtons.showCounter": false,
     "VsCodeTaskButtons.tasks": [
         {
-            "label": "$(gear) Configure",
-            "tasks": [
-                {
-                    "label": "$(target) Configure the app",
-                    "task": "Configure app"
-                }
-            ],
-            "tooltip": "Select current configuration"
-        },
-        {
             "label": "$(symbol-property) Build",
             "task": "Build",
             "tooltip": "Build current configuration (Ctrl+Maj+B)"

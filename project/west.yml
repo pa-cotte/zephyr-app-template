@@ -1,19 +1,38 @@
 manifest:
     
   remotes:
-    - name: zephyrproject-rtos
-      url-base: https://github.com/zephyrproject-rtos
+    - name: alif
+      url-base: https://github.com/alifsemi
+    - name: armmbed
+      url-base: https://github.com/ARMmbed
 
   projects:
     - name: zephyr
-      remote: zephyrproject-rtos
-      revision: v3.7.0
+      remote: alif
+      repo-path: zephyr_alif
+      revision: v1.2-zas-branch
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.
         name-allowlist:
-          - cmsis       # required by the ARM portœ
-          - hal_stm32   # required by the STM32 based boards
           - segger       
           - liblc3
-      
+          - hal_alif    # required by the Alif based boards
+          - net-tools   # Alif based boards network util tools
+          - hal_ethos_u # required by the Alif based boards for npu
+
+    - name: mcuboot_alif
+      remote: alif
+      repo-path: mcuboot_alif
+      path: bootloader/mcuboot
+      revision: main
+
+    - name: cmsis_alif
+      remote: alif
+      revision: 85f6b92af0f6ac72594d391f895c45cc30847e41
+      path: modules/hal/cmsis
+      groups:
+         - hal
+  self:
+    path: alif
+    west-commands: scripts/west-commands.yml
