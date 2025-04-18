@@ -32,8 +32,6 @@
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
-            // "serverpath": "/opt/zephyr-sdk-0.17.0/sysroots/x86_64-pokysdk-linux/usr/bin/openocd",
-            // "servertype": "openocd",
             "serverpath": "/opt/SEGGER/JLink/JLinkGDBServerCLExe",
             "servertype": "jlink",
             "interface": "swd",
@@ -42,9 +40,6 @@
             "armToolchainPath": "/opt/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin",
             "rtos": "Zephyr",
             "showDevDebugOutput": "vscode",
-            "configFiles": [
-                "${workspaceFolder}/zephyr/boards/arm/alif_e7_dk/support/openocd.cfg"
-            ]
         },
     ]
 }

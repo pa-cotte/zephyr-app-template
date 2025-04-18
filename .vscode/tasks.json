@@ -14,7 +14,7 @@
             }
         },
         {
-            "label": "Set COM port",
+            "label": "Maintenance",
             "type": "shell",
             "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/maintenance -d",
             "group": "test",
