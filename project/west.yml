@@ -1,0 +1,19 @@
+manifest:
+    
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v3.7.0
+      import:
+        # By using name-allowlist we can clone only the modules that are
+        # strictly needed by the application.
+        name-allowlist:
+          - cmsis       # required by the ARM portœ
+          - hal_stm32   # required by the STM32 based boards
+          - segger       
+          - liblc3
+      

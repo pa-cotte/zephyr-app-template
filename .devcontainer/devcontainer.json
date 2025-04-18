@@ -1,0 +1,39 @@
+{
+  "name": "Zephyr app template",
+  "privileged": true,
+  "updateRemoteUserUID": true,
+  "containerUser": "user",
+  "remoteEnv": {
+    "NODE_TLS_REJECT_UNAUTHORIZED": "0"
+  },
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {"ZEPHYR_SDK_VERSION": "0.16.4"}
+  },
+  "containerEnv": {
+    "PROMPT_COMMAND": "history -a",
+    "ZEPHYR_BASE": "${containerWorkspaceFolder}/zephyr"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-azuretools.vscode-docker",
+        "mcu-debug.debug-tracker-vscode",
+        "augustocdias.tasks-shell-input",
+        "spencerwmiles.vscode-task-buttons",
+        "evilz.vscode-reveal",
+        "plorefice.devicetree",
+        "trond-snekvik.kconfig-lang",
+        "marus25.cortex-debug",
+        "cheshirekow.cmake-format",
+        "ms-vscode.cmake-tools",
+        "ms-python.python"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  }
+}

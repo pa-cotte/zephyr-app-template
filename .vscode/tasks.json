@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Configure app",
+            "type": "shell",
+            "command": "west build -p auto -b ${input:board_app} project/app",
+            "group": "build",
+            "presentation": {
+                "clear": true
+            }
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "west build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "clear": true
+            }
+        },
+        {
+            "label": "Flash",
+            "type": "shell",
+            "command": "west flash",
+            "group": "test"
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "rm -rf build",
+            "group": "build"
+        },
+    ],
+    "inputs": [
+        {
+            "type": "pickString",
+            "id": "board_app",
+            "description": "Target board",
+            "options": [
+                "nucleo_l476rg",
+            ],
+            "default": "nucleo_l476rg"
+        }
+    ]
+}

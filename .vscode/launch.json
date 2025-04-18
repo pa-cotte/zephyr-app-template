@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Native sim",
+            "type": "cppdbg",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/build/zephyr/zephyr.exe"
+        },
+        {
+            "name": "Nucleo L476RG",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "serverpath": "/opt/zephyr-sdk-0.16.4/sysroots/x86_64-pokysdk-linux/usr/bin/openocd",
+            "servertype": "openocd",
+            "interface": "swd",
+            "device": "STM32L476RG",
+            "toolchainPrefix": "arm-zephyr-eabi",
+            "armToolchainPath": "/opt/zephyr-sdk-0.16.4/arm-zephyr-eabi/bin",
+            "rtos": "Zephyr",
+            "showDevDebugOutput": "vscode",
+            "configFiles": [
+                "${workspaceFolder}/zephyr/boards/st/nucleo_l476rg/support/openocd.cfg"
+            ]
+        },
+    ]
+}
