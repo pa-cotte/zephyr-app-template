@@ -1,18 +1,35 @@
 {
     "version": "2.0.0",
     "tasks": [
+        // Task triggered by "Buttons"
         {
             "label": "Build",
             "type": "shell",
-            "command": "west build -p auto -b ${input:board_app} project/app && sudo cp -f ${workspaceFolder}/build/zephyr/zephyr.bin ${ALIF_SE_TOOLS}/build/images/zephyr_e7_rtsshp.bin && cd ${ALIF_SE_TOOLS} && sudo ./app-gen-toc -f ${workspaceFolder}/tools/alif/zephyr_e7_rtsshp.json",
+            "command": "west build -p auto -b alif_e7_dk_rtss_he --sysbuild project/he_app",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
+        },
+        {
+            "label": "Flash",
+            "type": "shell",
+            "command": "sudo cp -f ${workspaceFolder}/build/he_app/zephyr/zephyr.bin ${ALIF_SE_TOOLS}/build/images/he_app.bin && sudo cp -f ${workspaceFolder}/build/hp_app/zephyr/zephyr.bin ${ALIF_SE_TOOLS}/build/images/hp_app.bin && cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-gen-toc -f ${workspaceFolder}/tools/alif/e7_he_hp.json && sudo ${ALIF_SE_TOOLS}/app-write-mram -p",
+            "group": "test",
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": [
+                "rm -rf build",
+                "sudo rm -rf ${ALIF_SE_TOOLS}/build/*"
+            ],
+            "group": "build",
             "presentation": {
                 "clear": true
-            }
+            },
         },
+        // Task triggered by "F1 -> run Task" 
         {
             "label": "Maintenance",
             "type": "shell",
@@ -20,28 +37,29 @@
             "group": "test",
         },
         {
-            "label": "Flash",
+            "label": "Erase MRAM",
+            "type": "shell",
+            "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-write-mram -e APP",
+            "group": "build",
+        },
+        {
+            "label": "Build stubs",
+            "type": "shell",
+            "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-gen-toc -f ${ALIF_SE_TOOLS}/build/config/app-cpu-stubs.json",
+            "group": {
+                "kind": "build",
+            },
+        },
+        {
+            "label": "Build and Flash stubs",
             "type": "shell",
             "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-write-mram -p",
-            "group": "test",
-        },
-        {
-            "label": "Clean",
-            "type": "shell",
-            "command": "rm -rf build",
-            "group": "build"
-        },
-    ],
-    "inputs": [
-        {
-            "type": "pickString",
-            "id": "board_app",
-            "description": "Target board",
-            "options": [
-                "nucleo_l476rg",
-                "alif_e7_dk_rtss_hp",
+            "group": {
+                "kind": "build",
+            },
+            "dependsOn": [
+                "Build stubs"
             ],
-            "default": "nucleo_l476rg"
         }
-    ]
+    ],
 }

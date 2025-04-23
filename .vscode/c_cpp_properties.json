@@ -9,7 +9,7 @@
             "configurationProvider": "ms-vscode.cmake-tools",
             "defines": [],
             "includePath": [
-                "${workspaceFolder}/project/app/**",
+                "${workspaceFolder}/project/**",
                 "${workspaceFolder}/project/drivers/**"
             ],
             "browse": {

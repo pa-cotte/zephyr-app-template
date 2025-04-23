@@ -4,7 +4,7 @@ set(EXTRA_CONF_FILE ../base.conf)
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
-project(simple_app)
+project(hp_app)
 
 zephyr_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
