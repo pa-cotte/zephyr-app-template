@@ -33,7 +33,7 @@
         {
             "label": "Maintenance",
             "type": "shell",
-            "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/maintenance -d",
+            "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/maintenance",
             "group": "test",
         },
         {
