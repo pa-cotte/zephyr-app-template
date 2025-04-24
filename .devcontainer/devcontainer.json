@@ -42,7 +42,8 @@
         "marus25.cortex-debug",
         "cheshirekow.cmake-format",
         "ms-vscode.cmake-tools",
-        "ms-python.python"
+        "ms-python.python",
+        "ms-vscode.vscode-serial-monitor"
       ],
       "settings": {
         "terminal.integrated.profiles.linux": {

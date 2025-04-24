@@ -61,3 +61,7 @@ RUN wget --post-data="accept_license_agreement=accepted&submit=Download+software
   && dpkg --configure jlink \
   && apt install -yf \
   && rm JLink_Linux_V828_x86_64.deb
+
+# Serial monitor permissions
+ENV UDEV=on
+RUN usermod -aG dialout user
