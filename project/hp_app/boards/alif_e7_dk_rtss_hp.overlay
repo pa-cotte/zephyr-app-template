@@ -1,0 +1,7 @@
+/ {
+  &eth0 {
+      status = "okay";
+      phy-handle = <&eth_phy0>;
+      phy-mode = "rmii";
+  };
+};

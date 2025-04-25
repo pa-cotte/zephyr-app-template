@@ -1,7 +1,7 @@
 {
     "DEVICE": {
         "disabled": false,
-        "binary": "app-device-config.json",
+        "binary": "device_config.json",
         "version": "0.5.00",
         "signed": true
     },

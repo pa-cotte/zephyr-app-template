@@ -5,7 +5,7 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "west build -p auto -b alif_e7_dk_rtss_he --sysbuild project/he_app",
+            "command": "west build -p auto -b alif_e7_dk_rtss_he --sysbuild project/he_app && sudo cp -f ${workspaceFolder}/tools/alif/device_config.json ${ALIF_SE_TOOLS}/build/config/device_config.json",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -41,6 +41,15 @@
             "type": "shell",
             "command": "cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-write-mram -e APP",
             "group": "build",
+        },
+        {
+            "label": "Build HP only",
+            "type": "shell",
+            "command": "west build -p auto -b alif_e7_dk_rtss_hp --sysbuild project/hp_app",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
         },
         {
             "label": "Build stubs",
