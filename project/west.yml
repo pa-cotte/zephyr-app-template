@@ -10,16 +10,18 @@ manifest:
     - name: zephyr
       remote: alif
       repo-path: zephyr_alif
-      revision: v1.2-zas-branch
+      revision: zas-v1.3-rc1
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.
         name-allowlist:
           - segger       
           - liblc3
-          - hal_alif    # required by the Alif based boards
+          - mbedtls
           - net-tools   # Alif based boards network util tools
+          - hal_alif    # required by the Alif based boards
           - hal_ethos_u # required by the Alif based boards for npu
+          - hal_infineon # required by murata 1LV board (wifi & bluetooth)
 
     - name: mcuboot_alif
       remote: alif

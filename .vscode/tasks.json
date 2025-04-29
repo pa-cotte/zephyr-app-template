@@ -60,6 +60,14 @@
             "dependsOn": [
                 "Build stubs"
             ],
+        },
+        {
+            "label": "fetch HAL infineon blobs",
+            "type": "shell",
+            "command": "west blobs fetch hal_infineon",
+            "group": {
+                "kind": "build",
+            },
         }
     ],
 }
