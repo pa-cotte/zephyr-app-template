@@ -27,6 +27,16 @@ sudo udevadm control --reload
 - `west init -l project`
 - `west update`
 
+### ALIF / MURATA 1LV
+
+- `west blobs fetch hal_infineon`
+- backport this PR : https://github.com/zephyrproject-rtos/zephyr/pull/77039/files
+- Modify the Infineon HAL CMakeLists.txt by moving the following lines outside the `if (CONFIG_SOC_FAMILY_INFINEON_CAT1A OR CONFIG_SOC_FAMILY_PSOC6)` block:
+    ```
+    add_subdirectory(core-lib)
+    add_subdirectory(abstraction-rtos)
+    ```  
+
 ## Build & Flash
 
 - Click on the "Configure" button in the bottom bar of vscode
