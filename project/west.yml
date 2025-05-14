@@ -5,12 +5,16 @@ manifest:
       url-base: https://github.com/alifsemi
     - name: armmbed
       url-base: https://github.com/ARMmbed
+    - name: pacotte
+      url-base: https://github.com/pa-cotte
 
   projects:
     - name: zephyr
-      remote: alif
+      # remote: alif
+      # revision: v1.3.0
+      remote: pacotte
+      revision: murata_1lv_wifi
       repo-path: zephyr_alif
-      revision: zas-v1.3-rc1
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.

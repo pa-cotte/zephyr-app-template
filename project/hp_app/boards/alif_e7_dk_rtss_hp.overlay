@@ -1,13 +1,20 @@
-&sdhc {
-  status = "okay";
-  /* Wi-Fi configuration */
-  airoc-wifi {
-    status = "okay";
-    compatible = "infineon,airoc-wifi";
-
-    /* Wi-Fi control gpios */
-    wifi-reg-on-gpios    = <&gpio0 2 GPIO_ACTIVE_HIGH>;
-    wifi-host-wake-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
-  };
+ns: &ns {
+	status = "okay";
 };
 
+&sdhc {
+	status = "okay";
+
+	mmc {
+		status = "okay";
+	};
+
+	airoc-wifi {
+		status = "okay";
+		compatible = "infineon,airoc-wifi";
+
+		/* Wi-Fi control gpios */
+		wifi-reg-on-gpios    = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+		wifi-host-wake-gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+	};
+};
