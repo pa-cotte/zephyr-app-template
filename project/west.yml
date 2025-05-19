@@ -10,10 +10,8 @@ manifest:
 
   projects:
     - name: zephyr
-      # remote: alif
-      # revision: v1.3.0
       remote: pacotte
-      revision: murata_1lv_wifi
+      revision: murata_1lv_wifi_zephyr_3_7_0
       repo-path: zephyr_alif
       import:
         # By using name-allowlist we can clone only the modules that are

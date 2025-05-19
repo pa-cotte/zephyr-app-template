@@ -31,7 +31,7 @@
             "type": "cortex-debug",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "executable": "${workspaceFolder}/build/hp_app/zephyr/zephyr.elf",
+            "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
             "serverpath": "/opt/SEGGER/JLink/JLinkGDBServerCLExe",
             "servertype": "jlink",
             "interface": "swd",
