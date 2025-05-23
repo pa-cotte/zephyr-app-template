@@ -11,7 +11,7 @@ manifest:
   projects:
     - name: zephyr
       remote: pacotte
-      revision: murata_1lv_wifi_zephyr_3_7_0
+      revision: alif_sdio_driver
       repo-path: zephyr_alif
       import:
         # By using name-allowlist we can clone only the modules that are
@@ -37,6 +37,14 @@ manifest:
       path: modules/hal/cmsis
       groups:
          - hal
+         
+    - name: alif_ensemble-cmsis-dfp
+      remote: pacotte
+      revision: zephyr_alif_sdio
+      path: modules/hal/alif_cmsis_dfp
+      groups:
+         - hal
+
   self:
     path: alif
     west-commands: scripts/west-commands.yml

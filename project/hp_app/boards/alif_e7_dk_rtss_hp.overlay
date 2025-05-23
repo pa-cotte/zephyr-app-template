@@ -4,9 +4,10 @@ ns: &ns {
 
 &sdhc {
 	status = "okay";
+	compatible = "alif,sdio";
 
 	mmc {
-		status = "okay";
+		status = "disabled";
 	};
 
 	airoc-wifi {
