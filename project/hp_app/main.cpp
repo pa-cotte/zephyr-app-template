@@ -30,6 +30,7 @@ auto main() -> int
 
   while (true)
   {
+    LOG_INF("HP red Blink !");
     ret = gpio_pin_toggle_dt(&led);
     if (ret < 0)
     {

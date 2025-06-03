@@ -60,6 +60,33 @@
             "dependsOn": [
                 "Build stubs"
             ],
+        },
+        {
+            "label": "Build and Flash tiny linux on MRAM",
+            "type": "shell",
+            "command": "sudo cp -f ${workspaceFolder}/tools/alif/alif-tiny-image-devkit-e7.cramfs-xip ${ALIF_SE_TOOLS}/build/images/alif-tiny-image-devkit-e7.cramfs-xip && sudo cp -f ${workspaceFolder}/tools/alif/bl32.bin ${ALIF_SE_TOOLS}/build/images/bl32.bin && sudo cp -f ${workspaceFolder}/tools/alif/xipImage ${ALIF_SE_TOOLS}/build/images/xipImage && sudo cp -f ${workspaceFolder}/tools/alif/devkit-e7.dtb ${ALIF_SE_TOOLS}/build/images/devkit-e7.dtb && cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-gen-toc -f ${workspaceFolder}/tools/alif/APSS-B2-MRAM.json && sudo ${ALIF_SE_TOOLS}/app-write-mram -p",
+            "group": {
+                "kind": "build",
+            },
+        },
+        {
+            "label": "Flash HP burner app",
+            "type": "shell",
+            "command": "sudo cp -f ${workspaceFolder}/tools/alif/PC_Tool_HE.bin ${ALIF_SE_TOOLS}/build/images/PC_Tool_HE.bin && cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-gen-toc -f ${workspaceFolder}/tools/alif/APSS-B2-PC-tool-burner.json && sudo ${ALIF_SE_TOOLS}/app-write-mram -p",
+            "group": {
+                "kind": "build",
+            },
+        },
+        {
+            "label": "Flash tiny linux on OSPI1 flash",
+            "type": "shell",
+            "command": "cd ${workspaceFolder}/tools/alif/PC-Tool/ && ./flashtool",
+            "group": {
+                "kind": "build",
+            },
+            "dependsOn": [
+                "Flash HP burner app"
+            ],
         }
     ],
 }
