@@ -10,7 +10,7 @@ manifest:
     - name: zephyr
       remote: alif
       repo-path: zephyr_alif
-      revision: v1.2-zas-branch
+      revision: v1.3.0
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.
@@ -20,6 +20,8 @@ manifest:
           - hal_alif    # required by the Alif based boards
           - net-tools   # Alif based boards network util tools
           - hal_ethos_u # required by the Alif based boards for npu
+          - mbedtls
+          - hal_atmel
 
     - name: mcuboot_alif
       remote: alif
