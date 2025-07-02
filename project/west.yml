@@ -5,12 +5,14 @@ manifest:
       url-base: https://github.com/alifsemi
     - name: armmbed
       url-base: https://github.com/ARMmbed
+    - name: pacotte
+      url-base: https://github.com/pa-cotte
 
   projects:
     - name: zephyr
-      remote: alif
+      remote: pacotte
       repo-path: zephyr_alif
-      revision: v1.3.0
+      revision: feature/clickboard-wifi-7-spi
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.

@@ -6,9 +6,6 @@
 #include <zephyr/sys/printk.h>
 #include <stdint.h>
 
-#define RED_LED_NODE DT_ALIAS(led0)
-#define SPI3_NODE DT_NODELABEL(spi3)
-
 LOG_MODULE_REGISTER(app, LOG_LEVEL_DBG);
 
 
