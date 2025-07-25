@@ -10,7 +10,7 @@ manifest:
     - name: zephyr
       remote: alif
       repo-path: zephyr_alif
-      revision: v1.2-zas-branch
+      revision: main
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.

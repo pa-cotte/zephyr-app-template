@@ -1,0 +1,27 @@
+/ {
+    outputs {
+        compatible = "gpio-leds";
+        gpio_irq_generator: gpio-irq-generator {
+            gpios = <&gpio14 0 GPIO_ACTIVE_HIGH>;
+            label = "P14 0";
+        };
+    };
+
+    inputs {
+        compatible = "gpio-keys";
+        gpio_irq_handler: gpioc-irq-handler {
+            gpios = <&gpio14 1 GPIO_ACTIVE_LOW>;
+            label = "P14 1";
+        };
+    };
+
+    aliases {
+        irq-generator = &gpio_irq_generator;
+        irq-handler = &gpio_irq_handler;
+    };
+};
+
+&gpio14 {
+    pinctrl-names = "default";
+    pinctrl-0 = <&pinctrl_gpio14>;
+};
