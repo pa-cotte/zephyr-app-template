@@ -5,7 +5,7 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "west build -p auto -b alif_e7_dk_rtss_he --sysbuild project/he_app",
+            "command": "west build -p auto -b alif_e7_dk/ae722f80f55d5xx/rtss_he --sysbuild project/he_app",
             "group": {
                 "kind": "build",
                 "isDefault": true

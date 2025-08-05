@@ -9,15 +9,15 @@ manifest:
   projects:
     - name: zephyr
       remote: alif
-      repo-path: zephyr_alif
-      revision: v1.2-zas-branch
+      repo-path: zephyr_alif_2.0
+      revision: main
       import:
         # By using name-allowlist we can clone only the modules that are
         # strictly needed by the application.
         name-allowlist:
           - segger       
           - liblc3
-          - hal_alif    # required by the Alif based boards
+          - hal_alif_2.0    # required by the Alif based boards
           - net-tools   # Alif based boards network util tools
           - hal_ethos_u # required by the Alif based boards for npu
 
@@ -29,7 +29,7 @@ manifest:
 
     - name: cmsis_alif
       remote: alif
-      revision: 85f6b92af0f6ac72594d391f895c45cc30847e41
+      revision: main
       path: modules/hal/cmsis
       groups:
          - hal

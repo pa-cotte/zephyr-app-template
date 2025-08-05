@@ -8,4 +8,4 @@ project(he_app)
 
 zephyr_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-target_sources(app PRIVATE main.cpp )
+target_sources(app PRIVATE main.cpp)
