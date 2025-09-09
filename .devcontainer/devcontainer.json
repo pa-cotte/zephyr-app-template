@@ -22,7 +22,8 @@
   "runArgs": [
     "--security-opt",
     "label=disable",
-    "--network=host" // needed for display like JLinkConfig tools
+    "--network=host", // needed for display like JLinkConfig tools
+    "--privileged"
   ],
   "mounts": [
     "type=bind,source=/dev/bus/usb,target=/dev/bus/usb"
@@ -43,6 +44,7 @@
         "cheshirekow.cmake-format",
         "ms-vscode.cmake-tools",
         "ms-python.python",
+        "anthropic.claude-code",
         "ms-vscode.vscode-serial-monitor"
       ],
       "settings": {
