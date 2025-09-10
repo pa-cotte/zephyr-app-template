@@ -1,0 +1,21 @@
+// Confidential - Copyright PA.COTTE: All rights reserved
+
+/ {
+  /* Note: We are using the default mcuboot slots as defined in zephyr/dts/arm/alif/ensemble_rtss_he.dtsi */
+  aliases {
+    cover-eoc-switch = &cover_eoc;
+  };
+  
+  gpio_keys {
+    compatible = "gpio-keys";
+    debounce-interval-ms = <30>;
+    cover_eoc: cover_eoc0 {
+      gpios = <&gpio6 3 GPIO_ACTIVE_HIGH>;
+    };
+  };
+};
+
+&gpio6 {
+  pinctrl-names = "default";
+  pinctrl-0 = <&pinctrl_gpio6>;
+};
