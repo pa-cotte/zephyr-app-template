@@ -84,5 +84,6 @@
 
 
 &ospi1 {
+  pinctrl-0 = <&pinctrl_flash>;
   status = "okay";
 };
