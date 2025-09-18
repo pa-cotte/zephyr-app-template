@@ -71,9 +71,9 @@
     };
     lfs2: lfs2 {
       compatible = "zephyr,fstab,littlefs";
-      read-size = <4096>;
-      prog-size = <4096>;
-      cache-size = <4096>;
+      read-size = <32>;
+      prog-size = <32>;
+      cache-size = <256>;
       lookahead-size = <64>;
       block-cycles = <10000>;// 10k cycles
       partition = <&ext_data_partition>;
