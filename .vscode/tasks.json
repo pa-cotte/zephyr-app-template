@@ -5,7 +5,7 @@
         {
             "label": "Build",
             "type": "shell",
-            "command": "west build -p auto -b alif_e7_dk/ae722f80f55d5xx/rtss_he --sysbuild project/he_app",
+            "command": "west build -p auto -b alif_e7_dk/ae722f80f55d5xx/rtss_he project/he_app",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -14,7 +14,7 @@
         {
             "label": "Flash",
             "type": "shell",
-            "command": "sudo cp -f ${workspaceFolder}/build/he_app/zephyr/zephyr.bin ${ALIF_SE_TOOLS}/build/images/he_app.bin && sudo cp -f ${workspaceFolder}/build/hp_app/zephyr/zephyr.bin ${ALIF_SE_TOOLS}/build/images/hp_app.bin && cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-gen-toc -f ${workspaceFolder}/tools/alif/e7_he_hp.json && sudo ${ALIF_SE_TOOLS}/app-write-mram -p",
+            "command": "sudo cp -f ${workspaceFolder}/build/zephyr/zephyr.bin ${ALIF_SE_TOOLS}/build/images/he_app.bin && cd ${ALIF_SE_TOOLS} && sudo ${ALIF_SE_TOOLS}/app-gen-toc -f ${workspaceFolder}/tools/alif/e7_he.json && sudo ${ALIF_SE_TOOLS}/app-write-mram -p",
             "group": "test",
         },
         {

@@ -1,0 +1,10 @@
+&i3c0 {
+    status = "okay";
+	
+	pca9685: pca9685@400000000000000000 {
+		compatible = "nxp,pca9685-pwm";
+		reg = <0x40 0x00 0x10>;
+		#pwm-cells = <2>;
+		status = "okay";
+    };
+};
